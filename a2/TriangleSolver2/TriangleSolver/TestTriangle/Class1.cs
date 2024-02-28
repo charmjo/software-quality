@@ -53,8 +53,8 @@ namespace TriangleTest
         }
          */
 
-        /*
-         *  public void ValidTriangle_TestEquilateral_OutputEquilateralTriangle() {
+        
+        public void ValidTriangle_TestEquilateral_OutputEquilateralTriangle() {
             // Arrange
             TriangleSides equilateral = new TriangleSides(3, 3, 3);
             String expected = "An equilateral triangle is formed";
@@ -65,7 +65,7 @@ namespace TriangleTest
             //Assert
             ClassicAssert.AreEqual(expected , actual);
         }
-         */
+         
 
 
     }
