@@ -53,7 +53,6 @@ namespace TriangleTest
         }
          */
 
-        
         public void ValidTriangle_TestEquilateral_OutputEquilateralTriangle() {
             // Arrange
             TriangleSides equilateral = new TriangleSides(3, 3, 3);
@@ -65,7 +64,48 @@ namespace TriangleTest
             //Assert
             ClassicAssert.AreEqual(expected , actual);
         }
-         
+
+        [Test]
+        public void ValidTriangle_TestFirstAndSecondEqual_OutputIsoscelesTriangle()
+        {
+            // Arrange
+            TriangleSides isosceles = new TriangleSides(5, 5, 3);
+            String expected = "An isosceles triangle is formed";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void ValidTriangle_TestSecondAndThirdEqual_OutputIsoscelesTriangle()
+        {
+            // Arrange
+            TriangleSides isosceles = new TriangleSides(3, 5, 5);
+            String expected = "An isosceles triangle is formed";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void ValidTriangle_TestThirdAndFirstEqual_OutputIsoscelesTriangle()
+        {
+            // Arrange
+            TriangleSides isosceles = new TriangleSides(5, 3, 5);
+            String expected = "An isosceles triangle is formed";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
 
 
     }
