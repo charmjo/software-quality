@@ -107,6 +107,76 @@ namespace TriangleTest
             ClassicAssert.AreEqual(expected, actual);
         }
 
+        [Test]
+        public void ValidTriangle_TestNotAllSidesEqual_OutputScaleneTriangle()
+        {
+            // Arrange
+            TriangleSides isosceles = new TriangleSides(23, 29, 31);
+            String expected = "A scalene triangle is formed";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void ValidTriangle_TestNonZeroSides_OutputScaleneTriangle()
+        {
+            // Arrange
+            TriangleSides isosceles = new TriangleSides(15, 20, 25);
+            String expected = "A scalene triangle is formed";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void ValidTriangle_TestSumFirstSecGreaterThanThird_OutputScaleneTriangle()
+        {
+            // Arrange
+            TriangleSides isosceles = new TriangleSides(5, 7, 3);
+            String expected = "A scalene triangle is formed";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void ValidTriangle_TestSumSecThirdGreaterThanFirst_OutputScaleneTriangle()
+        {
+            // Arrange
+            TriangleSides isosceles = new TriangleSides(5, 7, 11);
+            String expected = "A scalene triangle is formed";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void ValidTriangle_TestSumtThirdFirstGreaterThanSec_OutputScaleneTriangle()
+        {
+            // Arrange
+            TriangleSides isosceles = new TriangleSides(11, 17, 19);
+            String expected = "A scalene triangle is formed";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
+
 
     }
 }
