@@ -27,7 +27,7 @@ namespace TriangleTest
         }
 
         [Test]
-        public void ValidTriangle_TestEquilateral_OutputEquilateralTriangle() {
+        public void AnalyzeTriangle_TestEquilateral_OutputEquilateralTriangle() {
             // Arrange
             TriangleSides equilateral = new TriangleSides(3, 3, 3);
             String expected = "An equilateral triangle is formed";
@@ -40,7 +40,7 @@ namespace TriangleTest
         }
 
         [Test]
-        public void ValidTriangle_TestFirstAndSecondEqual_OutputIsoscelesTriangle()
+        public void AnalyzeTriangle_TestFirstAndSecondEqual_OutputIsoscelesTriangle()
         {
             // Arrange
             TriangleSides isosceles = new TriangleSides(5, 5, 3);
@@ -54,7 +54,7 @@ namespace TriangleTest
         }
 
         [Test]
-        public void ValidTriangle_TestSecondAndThirdEqual_OutputIsoscelesTriangle()
+        public void AnalyzeTriangle_TestSecondAndThirdEqual_OutputIsoscelesTriangle()
         {
             // Arrange
             TriangleSides isosceles = new TriangleSides(3, 5, 5);
@@ -68,7 +68,7 @@ namespace TriangleTest
         }
 
         [Test]
-        public void ValidTriangle_TestThirdAndFirstEqual_OutputIsoscelesTriangle()
+        public void AnalyzeTriangle_TestThirdAndFirstEqual_OutputIsoscelesTriangle()
         {
             // Arrange
             TriangleSides isosceles = new TriangleSides(5, 3, 5);
@@ -82,70 +82,70 @@ namespace TriangleTest
         }
 
         [Test]
-        public void ValidTriangle_TestNotAllSidesEqual_OutputScaleneTriangle()
+        public void AnalyzeTriangle_TestNotAllSidesEqual_OutputScaleneTriangle()
         {
             // Arrange
-            TriangleSides isosceles = new TriangleSides(23, 29, 31);
+            TriangleSides scalene = new TriangleSides(23, 29, 31);
             String expected = "A scalene triangle is formed";
 
             // Act
-            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+            String actual = Triangle.AnalyzeTriangle(scalene.firstSide, scalene.secondSide, scalene.thirdSide);
 
             //Assert
             ClassicAssert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void ValidTriangle_TestNonZeroSides_OutputScaleneTriangle()
+        public void AnalyzeTriangle_TestNonZeroSides_OutputScaleneTriangle()
         {
             // Arrange
-            TriangleSides isosceles = new TriangleSides(15, 20, 25);
+            TriangleSides scalene = new TriangleSides(15, 20, 25);
             String expected = "A scalene triangle is formed";
 
             // Act
-            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+            String actual = Triangle.AnalyzeTriangle(scalene.firstSide, scalene.secondSide, scalene.thirdSide);
 
             //Assert
             ClassicAssert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void ValidTriangle_TestSumFirstSecGreaterThanThird_OutputScaleneTriangle()
+        public void AnalyzeTriangle_TestSumFirstSecGreaterThanThird_OutputScaleneTriangle()
         {
             // Arrange
-            TriangleSides isosceles = new TriangleSides(5, 7, 3);
+            TriangleSides scalene = new TriangleSides(5, 7, 3);
             String expected = "A scalene triangle is formed";
 
             // Act
-            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+            String actual = Triangle.AnalyzeTriangle(scalene.firstSide, scalene.secondSide, scalene.thirdSide);
 
             //Assert
             ClassicAssert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void ValidTriangle_TestSumSecThirdGreaterThanFirst_OutputScaleneTriangle()
+        public void AnalyzeTriangle_TestSumSecThirdGreaterThanFirst_OutputScaleneTriangle()
         {
             // Arrange
-            TriangleSides isosceles = new TriangleSides(5, 7, 11);
+            TriangleSides scalene = new TriangleSides(5, 7, 11);
             String expected = "A scalene triangle is formed";
 
             // Act
-            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+            String actual = Triangle.AnalyzeTriangle(scalene.firstSide, scalene.secondSide, scalene.thirdSide);
 
             //Assert
             ClassicAssert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void ValidTriangle_TestSumtThirdFirstGreaterThanSec_OutputScaleneTriangle()
+        public void AnalyzeTriangle_TestSumtThirdFirstGreaterThanSec_OutputScaleneTriangle()
         {
             // Arrange
-            TriangleSides isosceles = new TriangleSides(11, 17, 19);
+            TriangleSides scalene = new TriangleSides(11, 17, 19);
             String expected = "A scalene triangle is formed";
 
             // Act
-            String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+            String actual = Triangle.AnalyzeTriangle(scalene.firstSide, scalene.secondSide, scalene.thirdSide);
 
             //Assert
             ClassicAssert.AreEqual(expected, actual);
@@ -194,7 +194,7 @@ namespace TriangleTest
         }
 
         [Test]
-        public void AnalyzeTriangle_TestSideSumFirstSecEqualThird_OutputNotValidTriangle()
+        public void AnalyzeTriangle_TestSideSumFirstSecEqualThird_OutputCannotBeFormed()
         {
             // Arrange
             TriangleSides notValid = new TriangleSides(1, 2, 3);
@@ -208,7 +208,7 @@ namespace TriangleTest
         }
 
         [Test]
-        public void AnalyzeTriangle_TestSideSumSecThirdEqualFirst_OutputNotValidTriangle()
+        public void AnalyzeTriangle_TestSideSumSecThirdEqualFirst_OutputCannotBeFormed()
         {
             // Arrange
             TriangleSides notValid = new TriangleSides(12, 4, 8);
@@ -222,7 +222,7 @@ namespace TriangleTest
         }
 
         [Test]
-        public void AnalyzeTriangle_TestSideSumThirdFirstEqualSec_OutputNotValidTriangle()
+        public void AnalyzeTriangle_TestSideSumThirdFirstEqualSec_OutputCannotBeFormed()
         {
             // Arrange
             TriangleSides notValid = new TriangleSides(3, 9, 6);
