@@ -193,6 +193,46 @@ namespace TriangleTest
             ClassicAssert.AreEqual(expected, actual);
         }
 
+        [Test]
+        public void AnalyzeTriangle_TestSideSumFirstSecEqualThird_OutputNotValidTriangle()
+        {
+            // Arrange
+            TriangleSides notValid = new TriangleSides(1, 2, 3);
+            String expected = "A triangle cannot be formed";
 
+            // Act
+            String actual = Triangle.AnalyzeTriangle(notValid.firstSide, notValid.secondSide, notValid.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void AnalyzeTriangle_TestSideSumSecThirdEqualFirst_OutputNotValidTriangle()
+        {
+            // Arrange
+            TriangleSides notValid = new TriangleSides(12, 4, 8);
+            String expected = "A triangle cannot be formed";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(notValid.firstSide, notValid.secondSide, notValid.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void AnalyzeTriangle_TestSideSumThirdFirstEqualSec_OutputNotValidTriangle()
+        {
+            // Arrange
+            TriangleSides notValid = new TriangleSides(3, 9, 6);
+            String expected = "A triangle cannot be formed";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(notValid.firstSide, notValid.secondSide, notValid.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
     }
 }
