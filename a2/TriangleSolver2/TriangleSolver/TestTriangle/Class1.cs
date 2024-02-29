@@ -27,32 +27,6 @@ namespace TriangleTest
         }
 
         [Test]
-        /*
-         *        public void NotValidTriangle_TestZeroSides_OutputNotValidTriangle() {
-
-            //Arrange
-            List<TriangleSides> testItems = new List<TriangleSides> {
-                new TriangleSides(0,5,6),
-                new TriangleSides(5, 0, 6),
-                new TriangleSides(5, 6, 0)
-            };
-            String expected = "At least one side entered had a zero - invalid triangle";
-
-            //Act
-            List<String> actualList = new List<String>();
-            foreach (TriangleSides item in testItems)
-            {
-                actualList.Add(Triangle.AnalyzeTriangle(item.firstSide, item.secondSide, item.thirdSide));
-            }
-
-            //Assert
-            foreach (String actual in actualList)
-            {
-                ClassicAssert.AreEqual(expected, actual);
-            }
-        }
-         */
-
         public void ValidTriangle_TestEquilateral_OutputEquilateralTriangle() {
             // Arrange
             TriangleSides equilateral = new TriangleSides(3, 3, 3);
@@ -172,6 +146,48 @@ namespace TriangleTest
 
             // Act
             String actual = Triangle.AnalyzeTriangle(isosceles.firstSide, isosceles.secondSide, isosceles.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void AnalyzeTriangle_TestZeroFirstSide_OutputNotValidTriangle()
+        {
+            // Arrange
+            TriangleSides notValid = new TriangleSides(0, 17, 19);
+            String expected = "At least one side entered had a zero - invalid triangle";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(notValid.firstSide, notValid.secondSide, notValid.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void AnalyzeTriangle_TestZeroSecondSide_OutputNotValidTriangle()
+        {
+            // Arrange
+            TriangleSides notValid = new TriangleSides(11, 0, 19);
+            String expected = "At least one side entered had a zero - invalid triangle";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(notValid.firstSide, notValid.secondSide, notValid.thirdSide);
+
+            //Assert
+            ClassicAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void AnalyzeTriangle_TestZeroThirdSide_OutputNotValidTriangle()
+        {
+            // Arrange
+            TriangleSides notValid = new TriangleSides(11, 17, 0);
+            String expected = "At least one side entered had a zero - invalid triangle";
+
+            // Act
+            String actual = Triangle.AnalyzeTriangle(notValid.firstSide, notValid.secondSide, notValid.thirdSide);
 
             //Assert
             ClassicAssert.AreEqual(expected, actual);
